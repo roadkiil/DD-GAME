@@ -1,0 +1,99 @@
+{
+  "environment": {
+    "date": "2026-11-18 15:15:17 UTC",
+    "os": "Linux-6.18.44-fc-v595-x86_64-with-glibc2.39",
+    "python": "3.13.18",
+    "display": "Xvfb (virtual, software OpenGL llvmpipe), no GPU, no audio device, no physical controller",
+    "retroarch": [
+      "Version: 1.18.0 (Git b2ceb50) Apr  2 2024"
+    ],
+    "supertux": "supertux2 v0.6.3",
+    "pygame": "2.5.8 / SDL 2.32.10"
+  },
+  "results": [
+    {
+      "test": "fresh setup + import without duplicates",
+      "result": "PASS",
+      "detail": "2 entries after importing twice: ['Libbet and the Magic Floor', 'SuperTux 2']",
+      "evidence": []
+    },
+    {
+      "test": "hub navigation (keyboard) + search",
+      "result": "PASS",
+      "detail": "arrow keys, tab switching, on-screen search filter and clear all responded",
+      "evidence": [
+        "docs/test-results/screenshots/01-library.png",
+        "docs/test-results/screenshots/02-search.png"
+      ]
+    },
+    {
+      "test": "emulated homebrew: Libbet via RetroArch+mGBA (launch, input changes picture, exit, return)",
+      "result": "PASS",
+      "detail": "RetroArch window shown; idle-vs-input pixel change: Start 0->562500 px, D-pad 0->150 px; hub regained control on exit and showed the post-session prompt",
+      "evidence": [
+        "docs/test-results/screenshots/03-libbet-details.png",
+        "docs/test-results/screenshots/04-libbet-title-a-idle.png",
+        "docs/test-results/screenshots/05-libbet-floor-a-idle.png",
+        "docs/test-results/screenshots/05-libbet-floor-c-after-input.png",
+        "docs/test-results/screenshots/07-libbet-returned.png"
+      ]
+    },
+    {
+      "test": "post-session result recorded (Untested -> Ready)",
+      "result": "PASS",
+      "detail": "status Untested -> Ready after a confirmed session",
+      "evidence": [
+        "docs/test-results/screenshots/08-libbet-ready.png"
+      ]
+    },
+    {
+      "test": "native game: SuperTux launch + in-game input response (world map)",
+      "result": "PASS",
+      "detail": "title -> Story Mode -> world map; idle-vs-input pixel change 432423->713801 px (weaker metric: animated water; frames reviewed visually - Tux moved, camera scrolled)",
+      "evidence": [
+        "docs/test-results/screenshots/09-supertux-title.png",
+        "docs/test-results/screenshots/10-supertux-worldmap-a-idle.png",
+        "docs/test-results/screenshots/10-supertux-worldmap-b-idle.png",
+        "docs/test-results/screenshots/10-supertux-worldmap-c-after-input.png"
+      ]
+    },
+    {
+      "test": "native game: exit detected, hub returns",
+      "result": "PASS",
+      "detail": "quit through the game's own menu; hub detected the exit and returned",
+      "evidence": [
+        "docs/test-results/screenshots/13-supertux-returned.png"
+      ]
+    },
+    {
+      "test": "persistence across hub restart (recents, playtime, test result)",
+      "result": "PASS",
+      "detail": "after restart: Recent order ['Libbet and the Magic Floor', 'SuperTux 2'], Libbet Ready, playtime Libbet 17s / SuperTux 40s",
+      "evidence": [
+        "docs/test-results/screenshots/14-after-restart.png"
+      ]
+    },
+    {
+      "test": "missing game file -> Setup required + clear error",
+      "result": "PASS",
+      "detail": "UI showed dialog 'Can't start Libbet Copy'; CLI: Cannot launch Libbet Copy: Game file not found: /tmp/ddhub-e2e-83k6212r/roms/Libbet Copy (Test).gb",
+      "evidence": [
+        "docs/test-results/screenshots/15-missing-file.png"
+      ]
+    },
+    {
+      "test": "missing emulator -> Setup required + next action",
+      "result": "PASS",
+      "detail": "Cannot launch Libbet and the Magic Floor: RetroArch not found at configured path /nonexistent/retroarch. | Next step: Fix settings.json programs.retroarch, or remove it to auto-detect.",
+      "evidence": []
+    },
+    {
+      "test": "save backup + restore (state vs save separation, newer-file guard)",
+      "result": "PASS",
+      "detail": "state libbet.state backed up; restore refused to overwrite newer file; forced restore matched original bytes; pre-restore safety backup created",
+      "evidence": []
+    }
+  ],
+  "passed": 10,
+  "total": 10
+}
