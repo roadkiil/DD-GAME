@@ -1,0 +1,940 @@
+{
+  "_comment": "Launch methods. args are argv tokens (never a shell string). Placeholders: {rom} {rom_dir} {rom_stem} {core_path} {appid} {url}. 'requires' lists user-provided files; 'optional': true means the emulator has a built-in fallback. 'tracking': process = wait for the process tree to exit; steam = watch Steam's RunningAppID; manual = hub cannot observe the session (streaming), the user confirms when done. 'features' are only what the backend itself provides - the hub exposes nothing it cannot back. 'local_verified' lists hosts where the DD Hub team actually played something; it is informational only, each user's readiness comes from their own test records.",
+  "retroarch-mgba": {
+    "name": "RetroArch + mGBA core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "mgba",
+    "platforms": [
+      "gb",
+      "gbc",
+      "gba"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": true,
+      "achievements": "RetroAchievements (free account, set in RetroArch)",
+      "netplay": false,
+      "screenshots": true,
+      "local_multiplayer": false
+    },
+    "tracking": "process"
+  },
+  "retroarch-gambatte": {
+    "name": "RetroArch + Gambatte core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "gambatte",
+    "platforms": [
+      "gb",
+      "gbc"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": true,
+      "achievements": "RetroAchievements",
+      "netplay": true,
+      "screenshots": true
+    },
+    "tracking": "process"
+  },
+  "mgba-standalone": {
+    "name": "mGBA (standalone)",
+    "kind": "emulated",
+    "program": "mgba",
+    "platforms": [
+      "gb",
+      "gbc",
+      "gba"
+    ],
+    "args": [
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": true,
+      "screenshots": true
+    },
+    "tracking": "process"
+  },
+  "retroarch-mesen": {
+    "name": "RetroArch + Mesen core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "mesen",
+    "platforms": [
+      "nes"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": true,
+      "achievements": "RetroAchievements",
+      "netplay": true,
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "retroarch-snes9x": {
+    "name": "RetroArch + Snes9x core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "snes9x",
+    "platforms": [
+      "snes"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": true,
+      "achievements": "RetroAchievements",
+      "netplay": true,
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "retroarch-mupen64plus": {
+    "name": "RetroArch + Mupen64Plus-Next core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "mupen64plus_next",
+    "platforms": [
+      "n64"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": false,
+      "achievements": "RetroAchievements",
+      "netplay": true,
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "retroarch-genesis-plus-gx": {
+    "name": "RetroArch + Genesis Plus GX core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "genesis_plus_gx",
+    "platforms": [
+      "sg1000",
+      "sms",
+      "gg",
+      "genesis",
+      "segacd"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "requires": [
+      {
+        "platform": "segacd",
+        "dir": "{retroarch_system}",
+        "any_of": [
+          "bios_CD_U.bin",
+          "bios_CD_E.bin",
+          "bios_CD_J.bin"
+        ],
+        "note": "Sega CD BIOS dumped from your own console"
+      }
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": true,
+      "achievements": "RetroAchievements",
+      "netplay": true,
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process",
+    "license_note": "Genesis Plus GX is non-commercial licensed: use a user-installed core; never bundle."
+  },
+  "retroarch-picodrive": {
+    "name": "RetroArch + PicoDrive core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "picodrive",
+    "platforms": [
+      "32x",
+      "genesis",
+      "sms"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": true,
+      "netplay": true,
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "retroarch-beetle-saturn": {
+    "name": "RetroArch + Beetle Saturn core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "mednafen_saturn",
+    "platforms": [
+      "saturn"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "requires": [
+      {
+        "dir": "{retroarch_system}",
+        "any_of": [
+          "sega_101.bin",
+          "mpr-17933.bin"
+        ],
+        "note": "Saturn BIOS dumped from your own console"
+      }
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": false,
+      "achievements": "RetroAchievements",
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "retroarch-flycast": {
+    "name": "RetroArch + Flycast core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "flycast",
+    "platforms": [
+      "dreamcast",
+      "naomi",
+      "atomiswave"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "requires": [
+      {
+        "dir": "{retroarch_system}/dc",
+        "any_of": [
+          "dc_boot.bin"
+        ],
+        "optional": true,
+        "note": "Optional: Flycast has an HLE BIOS; a real BIOS improves compatibility"
+      }
+    ],
+    "features": {
+      "save_states": true,
+      "achievements": "RetroAchievements",
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "retroarch-pcsx-rearmed": {
+    "name": "RetroArch + PCSX ReARMed core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "pcsx_rearmed",
+    "platforms": [
+      "psx"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "requires": [
+      {
+        "dir": "{retroarch_system}",
+        "any_of": [
+          "scph5501.bin",
+          "scph5500.bin",
+          "scph5502.bin",
+          "scph1001.bin"
+        ],
+        "optional": true,
+        "note": "Optional: HLE BIOS built in; a real BIOS improves compatibility"
+      }
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": true,
+      "achievements": "RetroAchievements",
+      "netplay": true,
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "retroarch-beetle-psx": {
+    "name": "RetroArch + Beetle PSX HW core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "mednafen_psx_hw",
+    "platforms": [
+      "psx"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "requires": [
+      {
+        "dir": "{retroarch_system}",
+        "any_of": [
+          "scph5501.bin",
+          "scph5500.bin",
+          "scph5502.bin"
+        ],
+        "note": "PS1 BIOS dumped from your own console"
+      }
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": true,
+      "achievements": "RetroAchievements",
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "retroarch-fbneo": {
+    "name": "RetroArch + FinalBurn Neo core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "fbneo",
+    "platforms": [
+      "arcade",
+      "neogeo"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": true,
+      "achievements": "RetroAchievements",
+      "netplay": true,
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process",
+    "license_note": "FinalBurn Neo is non-commercial licensed: use a user-installed core; never bundle."
+  },
+  "retroarch-pce": {
+    "name": "RetroArch + Beetle PCE Fast core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "mednafen_pce_fast",
+    "platforms": [
+      "pce"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": true,
+      "achievements": "RetroAchievements",
+      "screenshots": true
+    },
+    "tracking": "process"
+  },
+  "retroarch-stella": {
+    "name": "RetroArch + Stella core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "stella",
+    "platforms": [
+      "atari2600"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": true,
+      "achievements": "RetroAchievements",
+      "screenshots": true
+    },
+    "tracking": "process"
+  },
+  "retroarch-melonds": {
+    "name": "RetroArch + melonDS DS core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "melondsds",
+    "platforms": [
+      "nds"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "achievements": "RetroAchievements",
+      "screenshots": true
+    },
+    "tracking": "process"
+  },
+  "retroarch-ppsspp": {
+    "name": "RetroArch + PPSSPP core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "ppsspp",
+    "platforms": [
+      "psp"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "achievements": "RetroAchievements",
+      "screenshots": true
+    },
+    "tracking": "process"
+  },
+  "retroarch-dosbox-pure": {
+    "name": "RetroArch + DOSBox Pure core",
+    "kind": "emulated",
+    "program": "retroarch",
+    "core": "dosbox_pure",
+    "platforms": [
+      "dos"
+    ],
+    "args": [
+      "-L",
+      "{core_path}",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "screenshots": true
+    },
+    "tracking": "process"
+  },
+  "dolphin": {
+    "name": "Dolphin",
+    "kind": "emulated",
+    "program": "dolphin",
+    "platforms": [
+      "gamecube",
+      "wii"
+    ],
+    "args": [
+      "-b",
+      "-e",
+      "{rom}"
+    ],
+    "fullscreen_args": [],
+    "features": {
+      "save_states": true,
+      "achievements": "RetroAchievements (Dolphin 2407+)",
+      "netplay": true,
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "pcsx2": {
+    "name": "PCSX2",
+    "kind": "emulated",
+    "program": "pcsx2",
+    "platforms": [
+      "ps2"
+    ],
+    "args": [
+      "-batch",
+      "--",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-fullscreen"
+    ],
+    "requires": [
+      {
+        "manual": true,
+        "note": "PS2 BIOS dumped from your own console, configured in PCSX2's setup wizard"
+      }
+    ],
+    "features": {
+      "save_states": true,
+      "achievements": "RetroAchievements",
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "duckstation": {
+    "name": "DuckStation",
+    "kind": "emulated",
+    "program": "duckstation",
+    "platforms": [
+      "psx"
+    ],
+    "args": [
+      "-batch",
+      "--",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-fullscreen"
+    ],
+    "requires": [
+      {
+        "manual": true,
+        "note": "PS1 BIOS dumped from your own console, configured in DuckStation"
+      }
+    ],
+    "features": {
+      "save_states": true,
+      "rewind": true,
+      "achievements": "RetroAchievements",
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process",
+    "license_note": "DuckStation is CC BY-NC-ND 4.0 (source-available): user-installed only."
+  },
+  "ppsspp": {
+    "name": "PPSSPP (standalone)",
+    "kind": "emulated",
+    "program": "ppsspp",
+    "platforms": [
+      "psp"
+    ],
+    "args": [
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "--fullscreen"
+    ],
+    "features": {
+      "save_states": true,
+      "achievements": "RetroAchievements",
+      "screenshots": true
+    },
+    "tracking": "process"
+  },
+  "rpcs3": {
+    "name": "RPCS3",
+    "kind": "emulated",
+    "program": "rpcs3",
+    "platforms": [
+      "ps3"
+    ],
+    "args": [
+      "--no-gui",
+      "{rom}"
+    ],
+    "fullscreen_args": [],
+    "requires": [
+      {
+        "manual": true,
+        "note": "Official PS3 firmware installed in RPCS3 (File > Install Firmware)"
+      }
+    ],
+    "features": {
+      "screenshots": true
+    },
+    "tracking": "process"
+  },
+  "xemu": {
+    "name": "xemu",
+    "kind": "emulated",
+    "program": "xemu",
+    "platforms": [
+      "xbox"
+    ],
+    "args": [
+      "-dvd_path",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-full-screen"
+    ],
+    "requires": [
+      {
+        "manual": true,
+        "note": "MCPX boot ROM, flash BIOS and HDD image from your own Xbox, set in xemu settings"
+      }
+    ],
+    "features": {
+      "save_states": true,
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "xenia": {
+    "name": "Xenia Canary",
+    "kind": "emulated",
+    "program": "xenia",
+    "platforms": [
+      "xbox360"
+    ],
+    "args": [
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "--fullscreen=true"
+    ],
+    "features": {},
+    "tracking": "process"
+  },
+  "cemu": {
+    "name": "Cemu",
+    "kind": "emulated",
+    "program": "cemu",
+    "platforms": [
+      "wiiu"
+    ],
+    "args": [
+      "-g",
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "requires": [
+      {
+        "manual": true,
+        "note": "keys.txt / dumped titles from your own Wii U"
+      }
+    ],
+    "features": {
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "melonds": {
+    "name": "melonDS (standalone)",
+    "kind": "emulated",
+    "program": "melonds",
+    "platforms": [
+      "nds"
+    ],
+    "args": [
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "features": {
+      "save_states": true,
+      "screenshots": false
+    },
+    "tracking": "process"
+  },
+  "azahar": {
+    "name": "Azahar",
+    "kind": "emulated",
+    "program": "azahar",
+    "platforms": [
+      "3ds"
+    ],
+    "args": [
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "-f"
+    ],
+    "requires": [
+      {
+        "manual": true,
+        "note": "Decrypted dumps of games you own"
+      }
+    ],
+    "features": {
+      "save_states": true,
+      "screenshots": true
+    },
+    "tracking": "process"
+  },
+  "flycast": {
+    "name": "Flycast (standalone)",
+    "kind": "emulated",
+    "program": "flycast",
+    "platforms": [
+      "dreamcast",
+      "naomi",
+      "atomiswave"
+    ],
+    "args": [
+      "{rom}"
+    ],
+    "fullscreen_args": [],
+    "features": {
+      "save_states": true,
+      "netplay": true,
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "mame": {
+    "name": "MAME",
+    "kind": "emulated",
+    "program": "mame",
+    "platforms": [
+      "arcade"
+    ],
+    "args": [
+      "-rompath",
+      "{rom_dir}",
+      "{rom_stem}"
+    ],
+    "fullscreen_args": [],
+    "features": {
+      "save_states": true,
+      "screenshots": true,
+      "local_multiplayer": true
+    },
+    "tracking": "process"
+  },
+  "dosbox-staging": {
+    "name": "DOSBox Staging",
+    "kind": "emulated",
+    "program": "dosbox-staging",
+    "platforms": [
+      "dos"
+    ],
+    "args": [
+      "{rom}"
+    ],
+    "fullscreen_args": [
+      "--fullscreen"
+    ],
+    "features": {
+      "screenshots": true
+    },
+    "tracking": "process"
+  },
+  "scummvm": {
+    "name": "ScummVM",
+    "kind": "emulated",
+    "program": "scummvm",
+    "platforms": [
+      "scummvm"
+    ],
+    "args": [
+      "--path={rom_dir}",
+      "--auto-detect"
+    ],
+    "fullscreen_args": [
+      "--fullscreen"
+    ],
+    "features": {
+      "save_states": true,
+      "screenshots": true
+    },
+    "tracking": "process"
+  },
+  "native-exe": {
+    "name": "Run program directly",
+    "kind": "native",
+    "program": "@game",
+    "platforms": [
+      "pc"
+    ],
+    "args": [],
+    "fullscreen_args": [],
+    "features": {},
+    "tracking": "process"
+  },
+  "steam": {
+    "name": "Steam client",
+    "kind": "native",
+    "program": "steam",
+    "platforms": [
+      "pc"
+    ],
+    "args": [
+      "steam://rungameid/{appid}"
+    ],
+    "fullscreen_args": [],
+    "features": {
+      "achievements": "Steam achievements (per game)",
+      "screenshots": true
+    },
+    "tracking": "steam"
+  },
+  "browser-url": {
+    "name": "Open in browser / official app",
+    "kind": "streaming",
+    "program": "@browser",
+    "platforms": [
+      "cloud",
+      "xboxone",
+      "xbox360",
+      "ps4",
+      "ps5",
+      "pc"
+    ],
+    "args": [
+      "{url}"
+    ],
+    "fullscreen_args": [],
+    "features": {},
+    "tracking": "manual"
+  },
+  "ps-remote-play": {
+    "name": "PS Remote Play (official)",
+    "kind": "streaming",
+    "program": "ps-remote-play",
+    "platforms": [
+      "ps4",
+      "ps5"
+    ],
+    "args": [],
+    "fullscreen_args": [],
+    "requires": [
+      {
+        "manual": true,
+        "note": "Your own PS4/PS5, signed in with the same PlayStation account, Remote Play enabled on the console"
+      }
+    ],
+    "features": {},
+    "tracking": "process"
+  },
+  "chiaki-ng": {
+    "name": "chiaki-ng (unofficial Remote Play)",
+    "kind": "streaming",
+    "program": "chiaki-ng",
+    "platforms": [
+      "ps4",
+      "ps5"
+    ],
+    "args": [],
+    "fullscreen_args": [],
+    "requires": [
+      {
+        "manual": true,
+        "note": "Console registered inside chiaki-ng with your own PSN account"
+      }
+    ],
+    "features": {},
+    "tracking": "process"
+  },
+  "moonlight": {
+    "name": "Moonlight (stream your own PC)",
+    "kind": "streaming",
+    "program": "moonlight",
+    "platforms": [
+      "pc",
+      "cloud"
+    ],
+    "args": [],
+    "fullscreen_args": [],
+    "requires": [
+      {
+        "manual": true,
+        "note": "Sunshine host paired with this Moonlight client"
+      }
+    ],
+    "features": {},
+    "tracking": "process"
+  }
+}

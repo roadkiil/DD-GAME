@@ -1,0 +1,567 @@
+{
+  "_comment": "upstream = state of the best local option as reported by upstream projects (see docs/compatibility-matrix.md for sources and dates). It is NOT a result tested on your machine. Values: mature | good | partial | experimental | unsupported. 'alternatives' are non-emulation routes (official PC ports, remote play, cloud).",
+  "gb": {
+    "name": "Game Boy",
+    "maker": "Nintendo",
+    "year": 1989,
+    "color": "#8b956d",
+    "extensions": [
+      ".gb"
+    ],
+    "backends": [
+      "retroarch-mgba",
+      "retroarch-gambatte",
+      "mgba-standalone"
+    ],
+    "upstream": "mature"
+  },
+  "gbc": {
+    "name": "Game Boy Color",
+    "maker": "Nintendo",
+    "year": 1998,
+    "color": "#6a4c9c",
+    "extensions": [
+      ".gbc"
+    ],
+    "backends": [
+      "retroarch-mgba",
+      "retroarch-gambatte",
+      "mgba-standalone"
+    ],
+    "upstream": "mature"
+  },
+  "gba": {
+    "name": "Game Boy Advance",
+    "maker": "Nintendo",
+    "year": 2001,
+    "color": "#4b3f9b",
+    "extensions": [
+      ".gba"
+    ],
+    "backends": [
+      "retroarch-mgba",
+      "mgba-standalone"
+    ],
+    "upstream": "mature"
+  },
+  "nes": {
+    "name": "NES / Famicom",
+    "maker": "Nintendo",
+    "year": 1983,
+    "color": "#b22222",
+    "extensions": [
+      ".nes",
+      ".fds",
+      ".unf"
+    ],
+    "backends": [
+      "retroarch-mesen"
+    ],
+    "upstream": "mature"
+  },
+  "snes": {
+    "name": "SNES / Super Famicom",
+    "maker": "Nintendo",
+    "year": 1990,
+    "color": "#7b68ee",
+    "extensions": [
+      ".sfc",
+      ".smc"
+    ],
+    "backends": [
+      "retroarch-snes9x"
+    ],
+    "upstream": "mature"
+  },
+  "n64": {
+    "name": "Nintendo 64",
+    "maker": "Nintendo",
+    "year": 1996,
+    "color": "#2e8b57",
+    "extensions": [
+      ".n64",
+      ".z64",
+      ".v64"
+    ],
+    "backends": [
+      "retroarch-mupen64plus"
+    ],
+    "upstream": "good"
+  },
+  "nds": {
+    "name": "Nintendo DS",
+    "maker": "Nintendo",
+    "year": 2004,
+    "color": "#708090",
+    "extensions": [
+      ".nds"
+    ],
+    "backends": [
+      "melonds",
+      "retroarch-melonds"
+    ],
+    "upstream": "good"
+  },
+  "gamecube": {
+    "name": "GameCube",
+    "maker": "Nintendo",
+    "year": 2001,
+    "color": "#5b4b8a",
+    "extensions": [
+      ".rvz",
+      ".gcm",
+      ".gcz",
+      ".ciso"
+    ],
+    "backends": [
+      "dolphin"
+    ],
+    "upstream": "mature"
+  },
+  "wii": {
+    "name": "Wii",
+    "maker": "Nintendo",
+    "year": 2006,
+    "color": "#9aa5b1",
+    "extensions": [
+      ".wbfs",
+      ".wad"
+    ],
+    "backends": [
+      "dolphin"
+    ],
+    "upstream": "mature",
+    "note": ".iso/.rvz are shared with GameCube: import those with an explicit platform"
+  },
+  "3ds": {
+    "name": "Nintendo 3DS",
+    "maker": "Nintendo",
+    "year": 2011,
+    "color": "#c0392b",
+    "extensions": [
+      ".3ds",
+      ".cci",
+      ".cxi",
+      ".3dsx"
+    ],
+    "backends": [
+      "azahar"
+    ],
+    "upstream": "good",
+    "note": "Citra was discontinued in 2024; Azahar is the maintained successor (verify)."
+  },
+  "wiiu": {
+    "name": "Wii U",
+    "maker": "Nintendo",
+    "year": 2012,
+    "color": "#1f9bd1",
+    "extensions": [
+      ".wud",
+      ".wux",
+      ".wua",
+      ".rpx"
+    ],
+    "backends": [
+      "cemu"
+    ],
+    "upstream": "good"
+  },
+  "switch": {
+    "name": "Nintendo Switch",
+    "maker": "Nintendo",
+    "year": 2017,
+    "color": "#e60012",
+    "extensions": [
+      ".nsp",
+      ".xci"
+    ],
+    "backends": [],
+    "upstream": "experimental",
+    "note": "Yuzu/Citra repos are gone (2024); Ryujinx stopped Oct 2024. Successor forks (Ryubing, Eden, ...) were named in Nintendo DMCA notices through Nov 2026 and now self-host. Not integrated: legal risk and no stable upstream. See docs/research/compatibility.md.",
+    "alternatives": "Play on Switch hardware. No official remote play or PC versions for most titles."
+  },
+  "switch2": {
+    "name": "Nintendo Switch 2",
+    "maker": "Nintendo",
+    "year": 2025,
+    "color": "#e60012",
+    "extensions": [],
+    "backends": [],
+    "upstream": "unsupported",
+    "alternatives": "Console hardware only.",
+    "note": "Only experimental forks exist (Nov 2026). No Nintendo remote play or cloud for PC."
+  },
+  "psx": {
+    "name": "PlayStation",
+    "maker": "Sony",
+    "year": 1994,
+    "color": "#8e8e8e",
+    "extensions": [
+      ".cue",
+      ".chd",
+      ".pbp",
+      ".m3u"
+    ],
+    "backends": [
+      "retroarch-pcsx-rearmed",
+      "retroarch-beetle-psx",
+      "duckstation"
+    ],
+    "upstream": "mature"
+  },
+  "ps2": {
+    "name": "PlayStation 2",
+    "maker": "Sony",
+    "year": 2000,
+    "color": "#1d3c8f",
+    "extensions": [],
+    "backends": [
+      "pcsx2"
+    ],
+    "upstream": "good",
+    "note": ".iso/.chd are used by many systems: import PS2 folders with --platform ps2"
+  },
+  "psp": {
+    "name": "PlayStation Portable",
+    "maker": "Sony",
+    "year": 2004,
+    "color": "#2b2b2b",
+    "extensions": [
+      ".cso"
+    ],
+    "backends": [
+      "ppsspp",
+      "retroarch-ppsspp"
+    ],
+    "upstream": "mature"
+  },
+  "ps3": {
+    "name": "PlayStation 3",
+    "maker": "Sony",
+    "year": 2006,
+    "color": "#111111",
+    "extensions": [
+      ".pkg"
+    ],
+    "backends": [
+      "rpcs3"
+    ],
+    "upstream": "partial",
+    "note": "Demanding: high-end CPU (AVX2/AVX-512 helps). Many titles playable, many not; check per title."
+  },
+  "vita": {
+    "name": "PlayStation Vita",
+    "maker": "Sony",
+    "year": 2011,
+    "color": "#2c3e50",
+    "extensions": [
+      ".vpk"
+    ],
+    "backends": [],
+    "upstream": "experimental",
+    "note": "Vita3K is experimental; not integrated by default."
+  },
+  "ps4": {
+    "name": "PlayStation 4",
+    "maker": "Sony",
+    "year": 2013,
+    "color": "#003791",
+    "extensions": [],
+    "backends": [
+      "ps-remote-play",
+      "chiaki-ng"
+    ],
+    "upstream": "experimental",
+    "note": "shadPS4 (v0.21.0) is partial/early. Default route: Remote Play from your own console, or official PC ports.",
+    "alternatives": "PS Remote Play from your console; PS Plus Premium cloud streaming (region-limited); official PC ports on Steam/Epic."
+  },
+  "ps5": {
+    "name": "PlayStation 5",
+    "maker": "Sony",
+    "year": 2020,
+    "color": "#00439c",
+    "extensions": [],
+    "backends": [
+      "ps-remote-play",
+      "chiaki-ng"
+    ],
+    "upstream": "unsupported",
+    "alternatives": "PS Remote Play from your console; PS Plus cloud via console/Portal (the PS Plus PC app is being retired Dec 2026); official PC ports."
+  },
+  "xbox": {
+    "name": "Xbox",
+    "maker": "Microsoft",
+    "year": 2001,
+    "color": "#107c10",
+    "extensions": [
+      ".xiso"
+    ],
+    "backends": [
+      "xemu"
+    ],
+    "upstream": "good",
+    "note": "xemu uses .iso (xiso); import with an explicit platform"
+  },
+  "xbox360": {
+    "name": "Xbox 360",
+    "maker": "Microsoft",
+    "year": 2005,
+    "color": "#5dc21e",
+    "extensions": [
+      ".xex"
+    ],
+    "backends": [
+      "xenia"
+    ],
+    "upstream": "partial",
+    "note": "Xenia Canary is Windows-first; compatibility varies widely by title.",
+    "alternatives": "Backward-compatible titles on Xbox One/Series; some via Xbox Cloud Gaming."
+  },
+  "xboxone": {
+    "name": "Xbox One / Series",
+    "maker": "Microsoft",
+    "year": 2013,
+    "color": "#0e7a0d",
+    "extensions": [],
+    "backends": [
+      "browser-url"
+    ],
+    "upstream": "unsupported",
+    "alternatives": "Xbox Cloud Gaming (Game Pass; monthly hour caps since Nov 2026: Ultimate 15h), Xbox Remote Play from your console, Play Anywhere / PC versions."
+  },
+  "sg1000": {
+    "name": "SG-1000",
+    "maker": "Sega",
+    "year": 1983,
+    "color": "#444466",
+    "extensions": [
+      ".sg"
+    ],
+    "backends": [
+      "retroarch-genesis-plus-gx"
+    ],
+    "upstream": "mature"
+  },
+  "sms": {
+    "name": "Master System",
+    "maker": "Sega",
+    "year": 1985,
+    "color": "#c0392b",
+    "extensions": [
+      ".sms"
+    ],
+    "backends": [
+      "retroarch-genesis-plus-gx",
+      "retroarch-picodrive"
+    ],
+    "upstream": "mature"
+  },
+  "gg": {
+    "name": "Game Gear",
+    "maker": "Sega",
+    "year": 1990,
+    "color": "#34495e",
+    "extensions": [
+      ".gg"
+    ],
+    "backends": [
+      "retroarch-genesis-plus-gx"
+    ],
+    "upstream": "mature"
+  },
+  "genesis": {
+    "name": "Genesis / Mega Drive",
+    "maker": "Sega",
+    "year": 1988,
+    "color": "#1a1a1a",
+    "extensions": [
+      ".md",
+      ".gen",
+      ".smd"
+    ],
+    "backends": [
+      "retroarch-genesis-plus-gx",
+      "retroarch-picodrive"
+    ],
+    "upstream": "mature"
+  },
+  "segacd": {
+    "name": "Sega CD / Mega-CD",
+    "maker": "Sega",
+    "year": 1991,
+    "color": "#2c2c54",
+    "extensions": [],
+    "backends": [
+      "retroarch-genesis-plus-gx"
+    ],
+    "upstream": "mature",
+    "note": ".cue/.chd: import with an explicit platform"
+  },
+  "32x": {
+    "name": "32X",
+    "maker": "Sega",
+    "year": 1994,
+    "color": "#5d4037",
+    "extensions": [
+      ".32x"
+    ],
+    "backends": [
+      "retroarch-picodrive"
+    ],
+    "upstream": "good"
+  },
+  "saturn": {
+    "name": "Saturn",
+    "maker": "Sega",
+    "year": 1994,
+    "color": "#37474f",
+    "extensions": [],
+    "backends": [
+      "retroarch-beetle-saturn"
+    ],
+    "upstream": "good",
+    "note": ".cue/.chd: import with an explicit platform"
+  },
+  "dreamcast": {
+    "name": "Dreamcast",
+    "maker": "Sega",
+    "year": 1998,
+    "color": "#e67e22",
+    "extensions": [
+      ".gdi",
+      ".cdi"
+    ],
+    "backends": [
+      "retroarch-flycast",
+      "flycast"
+    ],
+    "upstream": "mature"
+  },
+  "arcade": {
+    "name": "Arcade",
+    "maker": "Various",
+    "year": 1978,
+    "color": "#d35400",
+    "extensions": [],
+    "backends": [
+      "retroarch-fbneo",
+      "mame"
+    ],
+    "upstream": "good",
+    "note": "Arcade .zip sets must match the emulator's romset version. Import arcade folders with --platform arcade."
+  },
+  "neogeo": {
+    "name": "Neo Geo",
+    "maker": "SNK",
+    "year": 1990,
+    "color": "#b7950b",
+    "extensions": [],
+    "backends": [
+      "retroarch-fbneo"
+    ],
+    "upstream": "mature",
+    "note": "Needs neogeo.zip BIOS set"
+  },
+  "naomi": {
+    "name": "NAOMI",
+    "maker": "Sega",
+    "year": 1998,
+    "color": "#a04000",
+    "extensions": [],
+    "backends": [
+      "retroarch-flycast",
+      "flycast"
+    ],
+    "upstream": "good"
+  },
+  "atomiswave": {
+    "name": "Atomiswave",
+    "maker": "Sammy",
+    "year": 2003,
+    "color": "#a04000",
+    "extensions": [],
+    "backends": [
+      "retroarch-flycast",
+      "flycast"
+    ],
+    "upstream": "good"
+  },
+  "pce": {
+    "name": "PC Engine / TurboGrafx-16",
+    "maker": "NEC",
+    "year": 1987,
+    "color": "#ecf0f1",
+    "extensions": [
+      ".pce"
+    ],
+    "backends": [
+      "retroarch-pce"
+    ],
+    "upstream": "mature"
+  },
+  "atari2600": {
+    "name": "Atari 2600",
+    "maker": "Atari",
+    "year": 1977,
+    "color": "#8d6e63",
+    "extensions": [
+      ".a26"
+    ],
+    "backends": [
+      "retroarch-stella"
+    ],
+    "upstream": "mature"
+  },
+  "dos": {
+    "name": "MS-DOS",
+    "maker": "PC",
+    "year": 1981,
+    "color": "#00796b",
+    "extensions": [
+      ".conf"
+    ],
+    "backends": [
+      "dosbox-staging",
+      "retroarch-dosbox-pure"
+    ],
+    "upstream": "mature"
+  },
+  "scummvm": {
+    "name": "ScummVM adventure",
+    "maker": "PC",
+    "year": 1987,
+    "color": "#558b2f",
+    "extensions": [],
+    "backends": [
+      "scummvm"
+    ],
+    "upstream": "mature"
+  },
+  "pc": {
+    "name": "PC",
+    "maker": "PC",
+    "year": 0,
+    "color": "#3d5afe",
+    "extensions": [],
+    "backends": [
+      "native-exe",
+      "steam",
+      "moonlight"
+    ],
+    "upstream": "mature",
+    "note": "Native games run directly. Windows games on Linux go through Steam/Proton or Wine (not integrated yet)."
+  },
+  "cloud": {
+    "name": "Cloud gaming",
+    "maker": "Streaming",
+    "year": 0,
+    "color": "#00b0ff",
+    "extensions": [],
+    "backends": [
+      "browser-url",
+      "moonlight"
+    ],
+    "upstream": "mature",
+    "note": "Runs on someone else's hardware; needs a subscription/account and a good connection. The hub cannot observe when a browser session ends. GeForce NOW paid tiers: 100h/month cap since Jan 2026."
+  }
+}

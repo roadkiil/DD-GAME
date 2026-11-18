@@ -1,0 +1,59 @@
+{
+  "_comment": "Curated freely distributable games. 'bundled' entries ship in content/ with their license; others are links only - the hub never downloads or redistributes them automatically. License details: docs/research/games-and-licenses.md.",
+  "libbet": {
+    "title": "Libbet and the Magic Floor",
+    "platform": "gb",
+    "kind": "emulated",
+    "bundled": "content/homebrew/libbet/libbet.gb",
+    "developer": "Damian Yerrick",
+    "year": 2018,
+    "code_license": "zlib",
+    "asset_license": "zlib (same repository)",
+    "url": "https://github.com/pinobatch/libbet",
+    "description": "Roll a ball across a puzzle floor, lighting every tile. Built from source (commit 1232e71) with RGBDS 0.9.4."
+  },
+  "supertux": {
+    "title": "SuperTux",
+    "platform": "pc",
+    "kind": "native",
+    "developer": "SuperTux Team",
+    "year": 2003,
+    "code_license": "GPL-3.0-or-later",
+    "asset_license": "Mixed free licenses (GPL / CC BY-SA, see data credits)",
+    "url": "https://www.supertux.org/",
+    "install": {
+      "linux": "sudo apt install supertux  (or flatpak install flathub org.supertuxproject.SuperTux)",
+      "windows": "Installer from https://www.supertux.org/download.html",
+      "darwin": "DMG from https://www.supertux.org/download.html"
+    },
+    "save_paths": {
+      "linux": [
+        "~/.local/share/supertux2"
+      ],
+      "windows": [
+        "%APPDATA%\\SuperTux\\supertux2"
+      ],
+      "darwin": [
+        "~/Library/Application Support/SuperTux"
+      ]
+    },
+    "description": "Classic side-scrolling platformer starring Tux.",
+    "aliases": [
+      "SuperTux 2",
+      "SuperTux2"
+    ]
+  },
+  "tobutobugirl-deluxe": {
+    "title": "Tobu Tobu Girl Deluxe",
+    "platform": "gbc",
+    "kind": "emulated",
+    "developer": "Tangram Games",
+    "year": 2020,
+    "code_license": "MIT",
+    "asset_license": "CC BY 4.0",
+    "url": "https://tangramgames.itch.io/tobu-tobu-girl-deluxe",
+    "mirror": "https://raw.githubusercontent.com/gbdev/database/37d519c998889ee2bbf8942031b56d78342d6e10/entries/tobutobugirldeluxe/tobudx.gb",
+    "attribution": "Tobu Tobu Girl Deluxe (c) Tangram Games, code MIT, assets CC BY 4.0 (https://creativecommons.org/licenses/by/4.0/). Unmodified.",
+    "description": "Arcade platformer. Link only: download it yourself, then `ddhub import-folder <folder>`."
+  }
+}

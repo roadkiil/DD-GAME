@@ -1,0 +1,240 @@
+{
+  "_comment": "Executables the hub can find. 'find' entries are tried in order: a bare name is looked up on PATH, 'flatpak:<app-id>' runs through flatpak, anything else is a path (~ and %VAR% expanded). Users can override any program with an explicit path in settings.json -> programs.<id>. Paths are candidates, not guarantees.",
+  "retroarch": {
+    "name": "RetroArch",
+    "homepage": "https://www.retroarch.com/",
+    "license": "GPL-3.0",
+    "version_args": ["--version"],
+    "find": {
+      "linux": ["retroarch", "flatpak:org.libretro.RetroArch"],
+      "windows": ["%APPDATA%\\EmuDeck\\Emulators\\RetroArch\\retroarch.exe", "C:\\RetroArch-Win64\\retroarch.exe", "%PROGRAMFILES%\\RetroArch\\retroarch.exe", "%PROGRAMFILES(X86)%\\Steam\\steamapps\\common\\RetroArch\\retroarch.exe", "retroarch.exe"],
+      "darwin": ["/Applications/RetroArch.app/Contents/MacOS/RetroArch"]
+    },
+    "install_hint": "Install RetroArch from https://www.retroarch.com/?page=platforms (Linux: your package manager or Flathub), then install the needed core from Main Menu > Online Updater > Core Downloader."
+  },
+  "mgba": {
+    "name": "mGBA (standalone)",
+    "homepage": "https://mgba.io/",
+    "license": "MPL-2.0",
+    "version_args": ["--version"],
+    "find": {
+      "linux": ["mgba-qt", "mgba", "/usr/games/mgba", "flatpak:io.mgba.mGBA"],
+      "windows": ["%PROGRAMFILES%\\mGBA\\mGBA.exe", "mGBA.exe"],
+      "darwin": ["/Applications/mGBA.app/Contents/MacOS/mGBA"]
+    },
+    "install_hint": "Download mGBA from https://mgba.io/downloads.html."
+  },
+  "dolphin": {
+    "name": "Dolphin",
+    "homepage": "https://dolphin-emu.org/",
+    "license": "GPL-2.0-or-later",
+    "version_args": ["--version"],
+    "find": {
+      "linux": ["dolphin-emu", "flatpak:org.DolphinEmu.dolphin-emu"],
+      "windows": ["%APPDATA%\\EmuDeck\\Emulators\\Dolphin-x64\\Dolphin.exe", "%PROGRAMFILES%\\Dolphin\\Dolphin.exe", "Dolphin.exe"],
+      "darwin": ["/Applications/Dolphin.app/Contents/MacOS/Dolphin"]
+    },
+    "install_hint": "Download Dolphin from https://dolphin-emu.org/download/."
+  },
+  "pcsx2": {
+    "name": "PCSX2",
+    "homepage": "https://pcsx2.net/",
+    "license": "GPL-3.0-or-later",
+    "version_args": ["-version"],
+    "find": {
+      "linux": ["pcsx2-qt", "flatpak:net.pcsx2.PCSX2"],
+      "windows": ["%APPDATA%\\EmuDeck\\Emulators\\PCSX2-Qt\\pcsx2-qt.exe", "%PROGRAMFILES%\\PCSX2\\pcsx2-qt.exe", "pcsx2-qt.exe"],
+      "darwin": ["/Applications/PCSX2.app/Contents/MacOS/PCSX2"]
+    },
+    "install_hint": "Download PCSX2 from https://pcsx2.net/downloads and run its setup wizard with a BIOS dumped from your own PS2."
+  },
+  "duckstation": {
+    "name": "DuckStation",
+    "homepage": "https://www.duckstation.org/",
+    "license": "CC-BY-NC-ND-4.0 (source-available, not OSI open source since 2024; verify)",
+    "version_args": [],
+    "find": {
+      "linux": ["duckstation-qt", "flatpak:org.duckstation.DuckStation"],
+      "windows": ["%APPDATA%\\EmuDeck\\Emulators\\duckstation\\duckstation-qt-x64-ReleaseLTCG.exe", "duckstation-qt-x64-ReleaseLTCG.exe"],
+      "darwin": ["/Applications/DuckStation.app/Contents/MacOS/DuckStation"]
+    },
+    "install_hint": "Download DuckStation from https://www.duckstation.org/ (note its non-commercial, no-derivatives license)."
+  },
+  "ppsspp": {
+    "name": "PPSSPP",
+    "homepage": "https://www.ppsspp.org/",
+    "license": "GPL-2.0-or-later",
+    "version_args": ["--version"],
+    "find": {
+      "linux": ["PPSSPPSDL", "ppsspp", "flatpak:org.ppsspp.PPSSPP"],
+      "windows": ["%APPDATA%\\EmuDeck\\Emulators\\ppsspp\\PPSSPPWindows64.exe", "%PROGRAMFILES%\\PPSSPP\\PPSSPPWindows64.exe"],
+      "darwin": ["/Applications/PPSSPPSDL.app/Contents/MacOS/PPSSPPSDL"]
+    },
+    "install_hint": "Download PPSSPP from https://www.ppsspp.org/download/."
+  },
+  "rpcs3": {
+    "name": "RPCS3",
+    "homepage": "https://rpcs3.net/",
+    "license": "GPL-2.0",
+    "version_args": [],
+    "find": {
+      "linux": ["rpcs3", "flatpak:net.rpcs3.RPCS3"],
+      "windows": ["%APPDATA%\\EmuDeck\\Emulators\\RPCS3\\rpcs3.exe", "C:\\RPCS3\\rpcs3.exe", "rpcs3.exe"],
+      "darwin": ["/Applications/RPCS3.app/Contents/MacOS/rpcs3"]
+    },
+    "install_hint": "Download RPCS3 from https://rpcs3.net/download and install the official PS3 firmware (PS3UPDAT.PUP from playstation.com) via File > Install Firmware."
+  },
+  "xemu": {
+    "name": "xemu",
+    "homepage": "https://xemu.app/",
+    "license": "GPL-2.0",
+    "version_args": [],
+    "find": {
+      "linux": ["xemu", "flatpak:app.xemu.xemu"],
+      "windows": ["%APPDATA%\\EmuDeck\\Emulators\\xemu\\xemu.exe", "xemu.exe"],
+      "darwin": ["/Applications/xemu.app/Contents/MacOS/xemu"]
+    },
+    "install_hint": "Download xemu from https://xemu.app/ and configure the MCPX boot ROM, flash BIOS and HDD image dumped from your own Xbox."
+  },
+  "xenia": {
+    "name": "Xenia Canary",
+    "homepage": "https://xenia.jp/",
+    "license": "BSD-3-Clause",
+    "version_args": [],
+    "find": {
+      "windows": ["%APPDATA%\\EmuDeck\\Emulators\\xenia\\xenia_canary.exe", "xenia_canary.exe"]
+    },
+    "install_hint": "Windows only. Download Xenia Canary from https://github.com/xenia-canary/xenia-canary-releases/releases."
+  },
+  "cemu": {
+    "name": "Cemu",
+    "homepage": "https://cemu.info/",
+    "license": "MPL-2.0",
+    "version_args": [],
+    "find": {
+      "linux": ["cemu", "flatpak:info.cemu.Cemu"],
+      "windows": ["%APPDATA%\\EmuDeck\\Emulators\\cemu\\Cemu.exe", "Cemu.exe"],
+      "darwin": ["/Applications/Cemu.app/Contents/MacOS/Cemu"]
+    },
+    "install_hint": "Download Cemu from https://cemu.info/ and add keys/dumped games from your own Wii U."
+  },
+  "melonds": {
+    "name": "melonDS",
+    "homepage": "https://melonds.kuribo64.net/",
+    "license": "GPL-3.0",
+    "version_args": [],
+    "find": {
+      "linux": ["melonDS", "flatpak:net.kuribo64.melonDS"],
+      "windows": ["%APPDATA%\\EmuDeck\\Emulators\\melonDS\\melonDS.exe", "melonDS.exe"],
+      "darwin": ["/Applications/melonDS.app/Contents/MacOS/melonDS"]
+    },
+    "install_hint": "Download melonDS from https://melonds.kuribo64.net/downloads.php."
+  },
+  "azahar": {
+    "name": "Azahar",
+    "homepage": "https://azahar-emu.org/",
+    "license": "GPL-2.0",
+    "version_args": [],
+    "find": {
+      "linux": ["azahar", "flatpak:org.azahar_emu.Azahar"],
+      "windows": ["%APPDATA%\\EmuDeck\\Emulators\\azahar\\azahar.exe", "azahar.exe"],
+      "darwin": ["/Applications/Azahar.app/Contents/MacOS/azahar"]
+    },
+    "install_hint": "Download Azahar (maintained Citra successor) from https://azahar-emu.org/."
+  },
+  "flycast": {
+    "name": "Flycast (standalone)",
+    "homepage": "https://github.com/flyinghead/flycast",
+    "license": "GPL-2.0",
+    "version_args": [],
+    "find": {
+      "linux": ["flycast", "flatpak:org.flycast.Flycast"],
+      "windows": ["%APPDATA%\\EmuDeck\\Emulators\\flycast\\flycast.exe", "flycast.exe"],
+      "darwin": ["/Applications/Flycast.app/Contents/MacOS/Flycast"]
+    },
+    "install_hint": "Download Flycast from https://github.com/flyinghead/flycast/releases."
+  },
+  "mame": {
+    "name": "MAME",
+    "homepage": "https://www.mamedev.org/",
+    "license": "GPL-2.0-or-later (project as a whole)",
+    "version_args": ["-version"],
+    "find": {
+      "linux": ["mame", "/usr/games/mame", "flatpak:org.mamedev.MAME"],
+      "windows": ["C:\\mame\\mame.exe", "mame.exe"],
+      "darwin": []
+    },
+    "install_hint": "Download MAME from https://www.mamedev.org/release.html. ROM sets must match the MAME version."
+  },
+  "dosbox-staging": {
+    "name": "DOSBox Staging",
+    "homepage": "https://www.dosbox-staging.org/",
+    "license": "GPL-2.0-or-later",
+    "version_args": ["--version"],
+    "find": {
+      "linux": ["dosbox", "flatpak:io.github.dosbox-staging"],
+      "windows": ["%LOCALAPPDATA%\\Programs\\DOSBox Staging\\dosbox.exe", "%PROGRAMFILES%\\DOSBox Staging\\dosbox.exe", "dosbox.exe"],
+      "darwin": ["/Applications/DOSBox Staging.app/Contents/MacOS/dosbox"]
+    },
+    "install_hint": "Download DOSBox Staging from https://www.dosbox-staging.org/releases/."
+  },
+  "scummvm": {
+    "name": "ScummVM",
+    "homepage": "https://www.scummvm.org/",
+    "license": "GPL-3.0-or-later",
+    "version_args": ["--version"],
+    "find": {
+      "linux": ["scummvm", "/usr/games/scummvm", "flatpak:org.scummvm.ScummVM"],
+      "windows": ["%PROGRAMFILES%\\ScummVM\\scummvm.exe", "scummvm.exe"],
+      "darwin": ["/Applications/ScummVM.app/Contents/MacOS/scummvm"]
+    },
+    "install_hint": "Download ScummVM from https://www.scummvm.org/downloads/."
+  },
+  "steam": {
+    "name": "Steam",
+    "homepage": "https://store.steampowered.com/about/",
+    "license": "Proprietary (official client)",
+    "version_args": [],
+    "find": {
+      "linux": ["steam", "flatpak:com.valvesoftware.Steam"],
+      "windows": ["%PROGRAMFILES(X86)%\\Steam\\steam.exe", "%PROGRAMFILES%\\Steam\\steam.exe"],
+      "darwin": ["/Applications/Steam.app/Contents/MacOS/steam_osx"]
+    },
+    "install_hint": "Install the Steam client from https://store.steampowered.com/about/ and sign in."
+  },
+  "ps-remote-play": {
+    "name": "PS Remote Play (official)",
+    "homepage": "https://remoteplay.dl.playstation.net/remoteplay/",
+    "license": "Proprietary (official client)",
+    "version_args": [],
+    "find": {
+      "windows": ["%PROGRAMFILES(X86)%\\Sony\\PS Remote Play\\RemotePlay.exe", "%PROGRAMFILES%\\Sony\\PS Remote Play\\RemotePlay.exe"],
+      "darwin": ["/Applications/RemotePlay.app/Contents/MacOS/RemotePlay"]
+    },
+    "install_hint": "Install PS Remote Play from https://remoteplay.dl.playstation.net/remoteplay/ . Requires your own PS4/PS5 on the same account and a good network."
+  },
+  "chiaki-ng": {
+    "name": "chiaki-ng (unofficial PlayStation Remote Play client)",
+    "homepage": "https://github.com/streetpea/chiaki-ng",
+    "license": "AGPL-3.0",
+    "version_args": [],
+    "find": {
+      "linux": ["chiaki", "flatpak:io.github.streetpea.Chiaki4deck"],
+      "windows": ["chiaki.exe"],
+      "darwin": ["/Applications/chiaki-ng.app/Contents/MacOS/chiaki"]
+    },
+    "install_hint": "Install chiaki-ng from https://streetpea.github.io/chiaki-ng/ . Unofficial; requires registering with your own console."
+  },
+  "moonlight": {
+    "name": "Moonlight",
+    "homepage": "https://moonlight-stream.org/",
+    "license": "GPL-3.0",
+    "version_args": [],
+    "find": {
+      "linux": ["moonlight", "moonlight-qt", "flatpak:com.moonlight_stream.Moonlight"],
+      "windows": ["%PROGRAMFILES%\\Moonlight Game Streaming\\Moonlight.exe"],
+      "darwin": ["/Applications/Moonlight.app/Contents/MacOS/Moonlight"]
+    },
+    "install_hint": "Install Moonlight from https://moonlight-stream.org/ and Sunshine (host) on the PC you stream from."
+  }
+}

@@ -1,0 +1,22 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ddhub"
+version = "0.1.0"
+description = "Console-style hub for emulated, native and streamed games, with honest readiness tracking"
+requires-python = ">=3.10"
+dependencies = ["pygame-ce>=2.5", "psutil>=5.9"]
+
+[project.optional-dependencies]
+test = ["pytest>=8"]
+
+[project.scripts]
+ddhub = "ddhub.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["ddhub*"]
+
+[tool.setuptools.package-data]
+ddhub = ["data/*.json"]
